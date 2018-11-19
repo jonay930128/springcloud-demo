@@ -1,4 +1,4 @@
-package wrx.xing.failback;
+package wrx.xing.service.failback;
 
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
@@ -16,12 +16,15 @@ import wrx.xing.service.HelloService;
 public class HelloServiceFailBackFactory implements FallbackFactory<HelloService> {
     private Logger logger = LoggerFactory.getLogger(HelloServiceFailBackFactory.class);
 
+    @Override
     public HelloService create(final Throwable throwable) {
         return new HelloService() {
+            @Override
             public String hello() {
                 return "I am fail:{}" + throwable.getMessage();
             }
 
+            @Override
             public Integer div(Integer divisor, Integer dividend) {
                 logger.error("div error:{}",throwable);
                 return -1;

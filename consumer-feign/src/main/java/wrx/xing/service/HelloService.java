@@ -3,7 +3,7 @@ package wrx.xing.service;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import wrx.xing.failback.HelloServiceFailBackFactory;
+import wrx.xing.service.failback.HelloServiceFailBackFactory;
 
 /**
  * 请填写类的描述
