@@ -1,5 +1,6 @@
 package wrx.xing.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,17 @@ public class ConsumerRestController {
     private static final String PROVIDER_PREFIX = "http://PROVIDER/";
 
     @RequestMapping("/hello")
+    @HystrixCommand(fallbackMethod = "hystrixHello")
     public String hello(){
-        String hello = restTemplate.getForObject(PROVIDER_PREFIX + "provider/test", String.class);
+        String hello = restTemplate.getForObject(PROVIDER_PREFIX + "provider/div", String.class);
         return hello;
+    }
+
+    /**
+     * 熔断
+     * @return
+     */
+    private String hystrixHello(){
+        return "hello hystrix";
     }
 }

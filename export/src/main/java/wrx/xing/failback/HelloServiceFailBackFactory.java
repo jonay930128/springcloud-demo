@@ -19,7 +19,7 @@ public class HelloServiceFailBackFactory implements FallbackFactory<HelloService
     public HelloService create(final Throwable throwable) {
         return new HelloService() {
             public String hello() {
-                return "I am fail:" + throwable.getMessage();
+                return "I am fail:{}" + throwable.getMessage();
             }
 
             public Integer div(Integer divisor, Integer dividend) {

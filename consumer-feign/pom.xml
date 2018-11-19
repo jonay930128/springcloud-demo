@@ -27,6 +27,13 @@
     </properties>
 
     <dependencies>
+
+        <!-- hystrix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+
         <!-- 自定义对外提供接口jar包 -->
         <dependency>
             <groupId>wrx.xing</groupId>

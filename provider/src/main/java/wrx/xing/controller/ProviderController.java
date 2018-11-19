@@ -23,11 +23,13 @@ public class ProviderController {
     private String myName;
 
     @RequestMapping("/hello")
+    @HystrixCommand
     public String hello(){
         return "hello springCloud I am " + myName + " my port is " + port;
     }
 
     @RequestMapping("/div")
+    @HystrixCommand
     public Integer div(Integer divisor, Integer dividend){
         return divisor / dividend;
     }
