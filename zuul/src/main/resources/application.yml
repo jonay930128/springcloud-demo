@@ -23,6 +23,8 @@ zuul:
   routes:
     myProvider.serviceId: provider
     myProvider.path: /myProvider/**
+    myConsumer.serviceId: CONSUMER-FEIGN
+    myConsumer.path: /myConsumer/**
 
 hystrix:
   command:

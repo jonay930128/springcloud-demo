@@ -9,4 +9,11 @@ spring:
       server:
         git:
           uri: git@github.com:jonay930128/springCloud-config-demo.git #GitHub上面的git仓库名字
-
+  rabbitmq:
+          host: 10.0.56.250
+          port: 5672
+          username: guest
+          password: guest
+management:
+    security:
+        enabled: false
