@@ -1,6 +1,8 @@
 package wrx.xing.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/provider")
 @RefreshScope
 public class ProviderController {
+
+    private Logger logger = LoggerFactory.getLogger(ProviderController.class);
 
     @Value("${server.port}")
     private String port;
@@ -36,7 +40,9 @@ public class ProviderController {
 
     @RequestMapping("/test")
     @HystrixCommand
-    public String test(){
+    public String test() throws InterruptedException {
+        logger.info("test zuul retry...");
+        Thread.sleep(1000000);
         return "test";
     }
 }

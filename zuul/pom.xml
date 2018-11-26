@@ -27,6 +27,11 @@
     </properties>
 
     <dependencies>
+        <!-- 重试 -->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
         <!-- zuul路由网关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
